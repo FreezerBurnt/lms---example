@@ -18,9 +18,7 @@ interface AttachmentFormProps {
 }
 
 const formSchema = z.object({
-  imageUrl: z.string().min(1, {
-    message: 'Image is required'
-  })
+  url: z.string().min(1)
 })
 
 export const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
@@ -65,16 +63,13 @@ export const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) =
           )}
         </Button>
       </div>
-      {!isEditing &&
-        (!initialData.imageUrl ? (
-          <div className='flex items-center justify-center h-60 bg-slate-200 rounded-md'>
-            <ImageIcon className='w-10 h-10 text-slate-500' />
-          </div>
-        ) : (
-          <div className='relative aspect-video mt-2'>
-            <Image alt='Upload' fill className='object-cover rounded-md' src={initialData.imageUrl} />
-          </div>
-        ))}
+      {!isEditing && (
+        <>
+          {initialData.attachments.length === 0 && (
+            <p className='text-sm mt-2 text-slate-500 italic'>No attachments found.</p>
+          )}
+        </>
+      )}
       {isEditing && (
         <div>
           <FileUpload
