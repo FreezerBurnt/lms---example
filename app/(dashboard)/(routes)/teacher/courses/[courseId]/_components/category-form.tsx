@@ -84,7 +84,7 @@ export const CategoryForm = ({ initialData, courseId, options }: CategoryFormPro
                 <FormItem>
                   <FormControl>
                     {/* //@ts-ignore */}
-                    <Combobox options={...options} {...field} />
+                    <Combobox {...field} options={options} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

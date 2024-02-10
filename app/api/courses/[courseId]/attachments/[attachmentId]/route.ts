@@ -3,11 +3,12 @@ import { NextResponse } from 'next/server'
 
 import { db } from '@/lib/db'
 
+
 export async function DELETE(req: Request, { params }: { params: { courseId: string; attachmentId: string } }) {
   try {
     const { userId } = auth()
 
-    if (!userId) {
+    if (!userId ) {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 

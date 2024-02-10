@@ -140,6 +140,7 @@ export async function PATCH(req: Request, { params }: { params: { courseId: stri
         data: {
           chapterId: params.chapterId,
           assetId: asset.id,
+          // @ts-ignore
           playbackId: asset.playback_ids?.[0]?.id
         }
       })
