@@ -1,6 +1,26 @@
-import Image from 'next/image'
-import React from 'react'
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import localFont from "next/font/local";
+
+const headingFont = localFont({
+  src: "../../../public/fonts/font.woff2"
+});
 
 export const Logo = () => {
-  return <Image src='/logo.svg' alt='logo' width={80} height={80} />
-}
+  return (
+    <Link href="/dashboard">
+      <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
+        <Image src="/logo.svg" alt="logo" width={30} height={30} />
+        <p
+          className={cn(
+            "text-lg text-neutral-700 text pt-1",
+            headingFont.className
+          )}
+        >
+          Template
+        </p>
+      </div>
+    </Link>
+  );
+};
