@@ -8,7 +8,7 @@ const TermsOfService = () => {
         <div className="text-3xl font-bold">Terms of Service!</div>
         <div>
           <div className="flex flex-row items-center justify-between mt-4">
-            <Link href="/">
+            <Link href="/dashboard">
               <Button variant={"outline"} size={"sm"} className="mr-4">
                 Back
               </Button>
